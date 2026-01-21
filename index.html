@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <!-- CHANGED: Removed user-scalable=no and maximum-scale=1 to allow pinch-to-zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#000000" />
     
     <!-- PWA / Mobile Web App Capable -->
@@ -25,7 +26,8 @@
         padding: 0;
         overflow: hidden;
         background-color: #000;
-        touch-action: none;
+        /* CHANGED: 'manipulation' allows pinch-zoom but disables double-tap zoom for better performance */
+        touch-action: manipulation;
         -webkit-user-select: none;
         user-select: none;
       }
@@ -57,8 +59,8 @@
     "@react-three/drei": "https://esm.sh/@react-three/drei@9.112.0?external=react,react-dom,three,@react-three/fiber",
     "@mediapipe/tasks-vision": "https://esm.run/@mediapipe/tasks-vision@0.10.9",
     "lucide-react": "https://esm.sh/lucide-react@0.436.0?external=react",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
