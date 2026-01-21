@@ -172,7 +172,8 @@ const App: React.FC = () => {
                            style={{ width: `${health}%` }}
                         />
                     </div>
-                    <p className="text-xs mt-1 opacity-70">系統完整度</p>
+                    {/* CHANGED: Text updated from 系統完整度 to 血量 */}
+                    <p className="text-xs mt-1 opacity-70">血量</p>
                  </div>
              </div>
 
