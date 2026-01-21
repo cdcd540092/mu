@@ -7,11 +7,11 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Loader, useProgress } from '@react-three/drei';
-import { GameStatus, NoteData } from './types';
-import { DEMO_CHART, SONG_URL, SONG_BPM } from './constants';
-import { useMediaPipe } from './hooks/useMediaPipe';
-import GameScene from './components/GameScene';
-import WebcamPreview from './components/WebcamPreview';
+import { GameStatus, NoteData } from './types.ts';
+import { DEMO_CHART, SONG_URL, SONG_BPM } from './constants.ts';
+import { useMediaPipe } from './hooks/useMediaPipe.ts';
+import GameScene from './components/GameScene.tsx';
+import WebcamPreview from './components/WebcamPreview.tsx';
 import { Play, RefreshCw, VideoOff, Hand, Sparkles, Download } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -162,20 +162,22 @@ const App: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 z-10">
           
           {/* HUD (Top) */}
-          <div className="flex justify-between items-start text-white w-full">
-             {/* Health Bar */}
-             <div className="w-1/3 max-w-xs">
-                 <div className="h-4 bg-gray-800 rounded-full overflow-hidden border-2 border-gray-700">
-                     <div 
-                        className={`h-full transition-all duration-300 ease-out ${health > 50 ? 'bg-green-500' : health > 20 ? 'bg-yellow-500' : 'bg-red-600'}`}
-                        style={{ width: `${health}%` }}
-                     />
+          <div className="flex items-start text-white w-full">
+             {/* Health Bar (Left 1/3) */}
+             <div className="w-1/3">
+                 <div className="max-w-xs">
+                    <div className="h-4 bg-gray-800 rounded-full overflow-hidden border-2 border-gray-700">
+                        <div 
+                           className={`h-full transition-all duration-300 ease-out ${health > 50 ? 'bg-green-500' : health > 20 ? 'bg-yellow-500' : 'bg-red-600'}`}
+                           style={{ width: `${health}%` }}
+                        />
+                    </div>
+                    <p className="text-xs mt-1 opacity-70">系統完整度</p>
                  </div>
-                 <p className="text-xs mt-1 opacity-70">系統完整度</p>
              </div>
 
-             {/* Score & Combo */}
-             <div className="text-center">
+             {/* Score & Combo (Center 1/3) */}
+             <div className="w-1/3 flex flex-col items-center">
                  <h1 className="text-5xl font-bold tracking-wider drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
                      {score.toLocaleString()}
                  </h1>
@@ -191,6 +193,7 @@ const App: React.FC = () => {
                  </div>
              </div>
              
+             {/* Spacer (Right 1/3) */}
              <div className="w-1/3"></div>
           </div>
 

@@ -7,7 +7,7 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { HandType, COLORS } from '../types';
+import { HandType, COLORS } from '../types.ts';
 
 interface SaberProps {
   type: HandType;

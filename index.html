@@ -13,6 +13,10 @@
 
     <title>Tempo Strike</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Babel for on-the-fly compilation in browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <style>
       body, html, #root {
         width: 100%;
@@ -51,5 +55,7 @@
 </head>
   <body>
     <div id="root"></div>
+    <!-- Entry Point: Use Babel to compile TSX on the fly -->
+    <script type="text/babel" data-type="module" src="./index.tsx" data-presets="react,typescript"></script>
   </body>
 </html>

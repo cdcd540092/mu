@@ -4,7 +4,7 @@
 */
 
 
-import { CutDirection, NoteData } from "./types";
+import { CutDirection, NoteData } from "./types.ts";
 import * as THREE from 'three';
 
 // Game World Config

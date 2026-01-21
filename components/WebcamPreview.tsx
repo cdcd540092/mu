@@ -6,7 +6,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { HandLandmarkerResult } from '@mediapipe/tasks-vision';
-import { COLORS } from '../types';
+import { COLORS } from '../types.ts';
 
 interface WebcamPreviewProps {
     videoRef: React.RefObject<HTMLVideoElement | null>;
