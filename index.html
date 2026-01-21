@@ -29,7 +29,6 @@
         -webkit-user-select: none;
         user-select: none;
       }
-      /* Ensure canvas doesn't capture weird touch highlights on mobile */
       canvas {
         outline: none;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -43,6 +42,8 @@
         font-family: sans-serif;
         font-size: 1.5rem;
         pointer-events: none;
+        text-align: center;
+        width: 100%;
       }
     </style>
   <script type="importmap">
@@ -51,23 +52,25 @@
     "react": "https://esm.sh/react@18.3.1",
     "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime?external=react",
     "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
-    "react-dom": "https://esm.sh/react-dom@18.3.1?external=react",
     "three": "https://esm.sh/three@0.167.1",
     "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.17.6?external=react,react-dom,three",
     "@react-three/drei": "https://esm.sh/@react-three/drei@9.112.0?external=react,react-dom,three,@react-three/fiber",
     "@mediapipe/tasks-vision": "https://esm.run/@mediapipe/tasks-vision@0.10.9",
     "lucide-react": "https://esm.sh/lucide-react@0.436.0?external=react",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 </head>
   <body>
     <div id="root">
-        <div id="loading-text">Loading Game Resources...</div>
+        <div id="loading-text">
+            Loading Game Resources...<br/>
+            <span style="font-size: 0.8rem; opacity: 0.7;">(Initial load may take a moment)</span>
+        </div>
     </div>
-    <!-- Entry Point: Use Babel to compile TSX on the fly -->
-    <script type="text/babel" data-type="module" src="./index.tsx" data-presets="react,typescript"></script>
+    <!-- CHANGED: Entry point is now main.tsx to force cache refresh -->
+    <script type="text/babel" data-type="module" src="./main.tsx" data-presets="react,typescript"></script>
   </body>
 </html>
